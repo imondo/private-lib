@@ -52,12 +52,12 @@ class utils {
   }
 
   /**
- * 数组删除元素 返回删除元素的数组
- * @params {Array} arr原数组
- * @params {String} ele 元素
- * @params {String} key 对象key
- * @return 返回删除元素的数组
- * */
+   * 数组删除元素 返回删除元素的数组
+   * @params {Array} arr原数组
+   * @params {String} ele 元素
+   * @params {String} key 对象key
+   * @return 返回删除元素的数组
+   * */
   static arrRemove ({ arr, ele, key }) {
     if (!Array.isArray(arr)) { return false; }
     let isObj = false;
