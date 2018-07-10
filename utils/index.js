@@ -121,28 +121,28 @@ class utils {
  * @return 树型结构
  * */
  static getTree (treeArray) {
-  var r = [];
-  var tmpMap ={};
+    var r = [];
+    var tmpMap ={};
 
-  for (var i=0, l=treeArray.length; i<l; i++) {
-    tmpMap[treeArray[i]["code"]]= treeArray[i]; 
-  } 
-
-  for (i=0, l=treeArray.length; i<l; i++) {
-    var key=tmpMap[treeArray[i]["parentCode"]];            
-    if (key) {
-      if (!key["children"]){
-        key["children"] = [];
-        key["children"].push(treeArray[i]);
-      }else{
-        key["children"].push(treeArray[i]);
-      }    
-    } else {
-      r.push(treeArray[i]);
+    for (let val of treeArray) {
+      tmpMap[val['code']]= val; 
     }
+
+    for (let val of treeArray) {
+      let key = tmpMap[val['parentCode']];            
+      if (key) {
+        if (!key['children']){
+          key['children'] = [];
+          key['children'].push(val);
+        }else{
+          key['children'].push(val);
+        }    
+      } else {
+        r.push(val);
+      }
+    }
+    return r
   }
-  return r
-}
 
 }
 
