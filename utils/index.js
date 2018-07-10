@@ -115,6 +115,35 @@ class utils {
    return result;
  }
 
+/**
+ * 扁平数据转换成树结构
+ * @param {Array} treeArray
+ * @return 树型结构
+ * */
+ static getTree (treeArray) {
+  var r = [];
+  var tmpMap ={};
+
+  for (var i=0, l=treeArray.length; i<l; i++) {
+    tmpMap[treeArray[i]["code"]]= treeArray[i]; 
+  } 
+
+  for (i=0, l=treeArray.length; i<l; i++) {
+    var key=tmpMap[treeArray[i]["parentCode"]];            
+    if (key) {
+      if (!key["children"]){
+        key["children"] = [];
+        key["children"].push(treeArray[i]);
+      }else{
+        key["children"].push(treeArray[i]);
+      }    
+    } else {
+      r.push(treeArray[i]);
+    }
+  }
+  return r
+}
+
 }
 
 const formatNumber = n => {
