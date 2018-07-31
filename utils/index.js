@@ -1,5 +1,5 @@
 /*自己碰到的一些有意思的函数公用出来的方法*/
-class utils {
+class MoLib {
   /**
    * 将数组重复元素归类组装成树形结构
    * @param {Array} arr  需要组装的数据
@@ -106,11 +106,11 @@ class utils {
      let day = _date.getDate();
      result = [year, month, day].map(formatNumber).join('-');
    } else if (hourC >= 1) {
-     result = parseInt(hourC) + "小时前";
+     result = parseInt(hourC) + '小时前';
    } else if (minC > 1) {
-     result = parseInt(minC) + "分钟前";
+     result = parseInt(minC) + '分钟前';
    } else {
-     result =  "刚刚";
+     result =  '刚刚';
    }
    return result;
  }
@@ -120,22 +120,25 @@ class utils {
  * @param {Array} treeArray
  * @return 树型结构
  * */
- static getTree (treeArray) {
-    var r = [];
-    var tmpMap ={};
+ static getTree (treeArray, config) {
+    var r = [],
+      tmpMap ={},
+      id = config.id || 'id',
+      pid = config.pid || 'parentId',
+      children = config.children || 'children';
 
     for (let val of treeArray) {
-      tmpMap[val['code']]= val; 
+      tmpMap[val[id]]= val; 
     }
 
     for (let val of treeArray) {
-      let key = tmpMap[val['parentCode']];            
+      let key = tmpMap[val[pid]];            
       if (key) {
-        if (!key['children']){
-          key['children'] = [];
-          key['children'].push(val);
+        if (!key[children]){
+          key[children] = [];
+          key[children].push(val);
         }else{
-          key['children'].push(val);
+          key[children].push(val);
         }    
       } else {
         r.push(val);
@@ -151,4 +154,4 @@ const formatNumber = n => {
   return n[1] ? n : '0' + n;
 }
 
-export default utils;
+module.exports = MoLib;
