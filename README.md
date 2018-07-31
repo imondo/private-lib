@@ -2,14 +2,6 @@
 
 > 自己私有的一些东西
 
-### 引入
+### 模块包
 
-```
-npm i mo-lib
-
-import MoLib from 'mo-lib' 
-
-or 
-
-import { getTree } from 'mo-lib'
-```
+ * mo-lib 自己常用的一些函数
