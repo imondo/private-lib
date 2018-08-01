@@ -60,3 +60,22 @@ import { getTree } from 'mo-lib'
 ```
  @param {Array} treeArray
 ```
+
+> randomWord(randomFlag, min, max)
+
+randomWord 产生任意长度随机字母数字组合
+
+```
+@param randomFlag 是否任意长度 min-任意长度最小位[固定位数] max-任意长度最大位
+@param min
+@param max
+@returns {string}
+```
+
+> generateUUID
+
+生成UUID
+
+```
+generateUUID();	// 例如：7ceb31a7-41b9-45ed-915b-14c7ad0fddf6
+```
