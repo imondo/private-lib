@@ -137,8 +137,10 @@ class MoLib {
         if (!key[children]){
           key[children] = [];
           key[children].push(val);
-        }else{
-          key[children].push(val);
+        } else {
+          if (key[children].findIndex(v => v[id] === val[id]) < 0) {
+            key[children].push(val);
+          }
         }    
       } else {
         r.push(val);
