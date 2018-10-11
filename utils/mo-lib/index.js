@@ -184,7 +184,31 @@ class MoLib {
         return (c=='x' ? r : (r&0x7|0x8)).toString(16);
     });
     return uuid;
-  }  
+  } 
+
+/**
+ * 深拷贝对象与数组
+ * @returns {obj} 返回Object
+ */
+static ObjClone(data) {
+  let obj = {};
+  for (let i in data) {
+    obj[i] = data[i];
+  }
+  return obj;
+}
+
+static arrayClone(data) {
+  let arr = [];
+  for (let i = 0; i < data.length; i++) {
+    if (typeof data[i] !== 'object') {
+      arr.push(data[i]);
+    } else {
+        arr.push(ObjClone(data[i]));
+    }
+  }
+  return arr;
+}  
 
 }
 

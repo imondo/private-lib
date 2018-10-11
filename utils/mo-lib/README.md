@@ -79,3 +79,13 @@ randomWord 产生任意长度随机字母数字组合
 ```
 generateUUID();	// 例如：7ceb31a7-41b9-45ed-915b-14c7ad0fddf6
 ```
+
+> ObjClone arrayClone
+
+深拷贝对象与数组
+
+```
+ObjClone(data);	// 深拷贝对象
+
+arrayClone(data); // 深拷贝数组
+```
